@@ -1,0 +1,13 @@
+
+{
+  "name": "CleanCampus AI",
+  "short_name": "CleanCampus",
+  "description": "College Cleanliness Management App",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f1f7f4",
+  "theme_color": "#087f5b",
+  "orientation": "portrait"
+}
+
