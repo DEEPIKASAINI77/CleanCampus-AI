@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="hi">
+<"
+<head>
+<link rel="manifest" href="manifest.json">
+>
+<link rel="icon" type="image/png" href="logo.png">">
+
+    >
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CleanCampus AI</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f1f7f4;
+  color: #18352a;
+}
+header {
+  background: #087f5b;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+nav {
+  background: #075e45;
+  padding: 15px;
+  text-align: center;
+}
+nav a {
+  color: white;
+  margin: 12px;
+  text-decoration: none;
+}
+.container {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+}
+.card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+}
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0 15px;
+  box-sizing: border-box;
+}
+button {
+  background: #087f5b;
+  color: white;
+  padding: 12px;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+footer {
+  background: #075e45;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+</style>
+</head>
+<body<header>
+>><h2><img src="logo.png" alt="CleanCampus AI Logo" width="60"> CleanCampus AI</h2>
+<header>
+  <h1>🌿 CleanCampus AI</h1>
+  <p>Smart College Cleanliness Management System</p>
+</header>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#complaint">Complaint</a>
+  <a href="#status">Track Status</a>
+</nav>
+<div class="container">zzz
+<section class="card" id="home">
+  <h2>स्वच्छ कॉलेज, स्वस्थ कॉलेज!</h2>
+  <p>अपने कॉलेज को साफ रखने में सहयोग करें।</p>
+</section>
+<section class="card" id="complaint">
+  <h2>📝 शिकायत दर्ज करें</h2>
+  <form id="form">
+    <label>नाम</label>
+    <input id="name" required placeholder="अपना नाम">
+    <label>आपकी भूमिका</label>
+    <select id="role" required>
+      <option value="">चुनें</option>
+      <option>Student</option>
+      <option>Teacher</option>
+      <option>Safai Staff</option>
+    </select>
+    <label>समस्या</label>
+    <select id="type" required>
+      <option value="">चुनें</option>
+      <option>कूड़ा-कचरा</option>
+      <option>भरा हुआ डस्टबिन</option>
+      <option>गंदा टॉयलेट</option>
+      <option>गंदा क्लासरूम</option>
+    </select>
+    <label>लोकेशन</label>
+    <input id="location" required placeholder="जैसे Computer Lab">
+    <label>फोटो</label>
+    <input type="file" id="photo" accept="image/*">
+    <label>विवरण</label>
+    <textarea id="description" required></textarea>
+    <button type="submit">Submit Complaint</button>
+  </form>
+  <div id="result"></div>
+</section>
+<section class="card" id="status">
+  <h2>📋 शिकायत का स्टेटस</h2>
+  <input id="trackId" placeholder="Complaint ID डालें">
+  <button id="trackButton" type="button">Track Status</button>
+  <p id="trackResult"></p>
+</section>
+<section class="card">
+  <h2>🤖 AI & Smart Alerts</h2>
+  <p>AI से गंदगी पहचानने और भरे डस्टबिन की सूचना देने की सुविधा जोड़ी जाएगी।</p>
+  <p>शिकायत पर सफाई में देरी होने पर शिक्षक और प्रिंसिपल को अलर्ट भेजने की सुविधा प्रस्तावित है।</p>
+</section>
+</div>
+<footer>
+  CleanCampus AI | स्वच्छता अपनाएँ 🌱
+</footer>
+<script>
+const complaints = {};
+document.getElementById("form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const id = "CC" + Math.floor(100000 + Math.random() * 900000);
+  complaints[id] = {
+    type: document.getElementById("type").value,
+    location: document.getElementById("location").value,
+    status: "Pending"
+  };
+  document.getElementById("result").textContent =
+    "शिकायत दर्ज हुई! आपकी ID है: " + id;
+  document.getElementById("trackId").value = id;
+});
+document.getElementById("trackButton").addEventListener("click", function() {
+  const id = document.getElementById("trackId").value.trim().toUpperCase();
+  const c = complaints[id];
+  document.getElementById("trackResult").textContent = c
+    ? "समस्या: " + c.type + " | लोकेशन: " + c.location + " | स्टेटस: " + c.status
+    : "शिकायत नहीं मिली। सही ID डालें।";
+});
+</script>
+</bod
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js")
+      .then(() => console.log("CleanCampus AI ready"))
+      .catch((error) => console.error("Service Worker error:", error));
+  });
+}
+</script>
+
+y>
+</html>
+                         
+
